@@ -1,0 +1,14 @@
+.imagen{
+  height: 100%;
+  width: 100%;
+  border-width: 0px;
+
+
+}
+
+.container{
+  height: 100%;
+  width: 4000px;
+  box-sizing: initial;
+  border-width: 0px;
+}
