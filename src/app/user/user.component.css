@@ -1,0 +1,18 @@
+.tarjeta{
+  background-color:rgba(4, 8, 37, 0.808);
+  color: white;
+  border-radius: 20px;
+  height: 120px;
+  cursor: pointer;
+}
+img{
+  border-radius: 20px 0px 0px 20px;
+  height: 120px;
+}
+
+.tarjeta:hover{
+  background-color: #2b6bb0da;
+  transition-duration: 1s;
+  box-shadow: 1px 3px 1px rgba(0, 0, 0, 0.418);
+  
+}

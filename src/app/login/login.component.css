@@ -1,0 +1,18 @@
+.container{
+  background-color: rgba(4, 8, 37, 0.808);
+  padding: 50px;
+  color: white;
+  font-family: 'PT Serif', serif;
+  border-radius: 20px;
+  width: 60%;
+  box-shadow: 4px 3px 2px black;
+}
+
+h1{
+  font-family: 'PT Serif', serif;
+}
+
+.ico{
+  height: 20px;
+  width: 20px;
+}
