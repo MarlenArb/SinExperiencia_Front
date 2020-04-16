@@ -4,9 +4,10 @@
 }
 
 .picture{
-  height: 90%;
-  width: 90%;
-  margin-top: 10px;
+  width: 174.33px;
+  height: 129px;
+  border-radius: 5px 0px 0px 5px;
+  border-right: 2px solid black;
 }
 
 .t{
@@ -19,7 +20,7 @@
   background: #163455a9;
   border: 1px solid black;
   border-radius: 5px;
-  box-shadow: 5px 5px 15px #3F3C3C;
+  box-shadow: 3px 3px 15px #3F3C3C;
   transition: all 0.3s ease-in;
   -webkit-transition: all 0.3s ease-in;
   -moz-transition: all 0.3s ease-in;
@@ -28,8 +29,7 @@
 #char-details .card:hover{
   background: #193f77d3;
   border: 1px solid black;
-  color: black;
   border-radius: 5px;
   border: none;
-  box-shadow: 5px 5px 10px #9E9E9E;
+  box-shadow: 3px 3px 10px #9E9E9E;
 }
