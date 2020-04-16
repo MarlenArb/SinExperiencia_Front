@@ -9,6 +9,8 @@ import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
+import { UserService } from './user/user.service';
+
 
 
 const routes: Routes = [
@@ -33,7 +35,7 @@ const routes: Routes = [
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

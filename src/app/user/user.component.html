@@ -1,125 +1,43 @@
-<div class="container mt-4"> 
+<!--
+<div class="container m-3">
   <div class="row">
-
-    <div class="col-sm-6">
-      <div class="card mb-3 tarjeta" style="max-width: 540px;">
-        <div class="row no-gutters">
-          <div class="col-md-4">
-            <img src="https://guiadeltrabajo.com/wp-content/uploads/2015/12/foto-solicitud.jpg" class="card-img imagen" alt="...">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">Guerrero_Cat</h5>
-              <p class="t card-text mt-1">Level: 10</p>
-              <p class="t card-tex mt-1">Experience: 10</p>
-              <button type="button" class="btn btn-secondary mt-4" data-toggle="modal" data-target="#exampleModal">
-               Skills
-              </button>
-            </div>
+    <div *ngFor="let user of users">
+      <div class="col-md-8" style="cursor: pointer;width: 500px;">
+        <div class="card">
+          <div class="card-body row no-gutters col-md-8">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">Nombre: {{ user.name }}</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Guerrero_Cat</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <p class="skills">Strength</p>
-            <div class="progress">
-              <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
-            </div>
-            <p class="skills">Speed</p>
-            <div class="progress">
-              <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%"></div>
-            </div>
-            <p class="skills">Magic</p>
-            <div class="progress">
-              <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
-            </div>
-            <p class="skills">Health Points</p>
-            <div class="progress">
-              <div id="1 "class="progress-bar progress-bar-striped progress-bar-animated bg-danger 1" role="progressbar1" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"></div>
-            </div>
-            <p class="skills">Intelligence</p>
-            <div class="progress">
-              <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+  </div>
+</div>
+-->
+<section id="char-details">
+  <div class="font-text container mt-4"> 
+    <div class="row">
+      <div *ngFor="let user of users">
+        <div class="col-sm-6"> 
+          
+          <div class="card mb-3 tarjeta" style="width: 525px; cursor: pointer;">
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <img src="/assets/img/users/{{ user.name.toLocaleLowerCase() }}.jpg" alt="{{ user.name }}" class="card-img picture">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">{{user.name}}</h5>
+                  <p class="t card-text mt-1">Profesión: {{user.occupation}}</p>
+                  <p class="t card-tex mt-1">Experiencia: {{user.experience}} años</p>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-info">Fight!</button>
-          </div>
+          
         </div>
       </div>
     </div>
-
-
- <div class="col-sm-6">
-      <div class="card mb-3 tarjeta" style="max-width: 540px;">
-        <div class="row no-gutters">
-          <div class="col-md-4">
-            <img src="https://lh3.googleusercontent.com/proxy/AEWypk5uDvNz4coSeORisrGE-lyBC1Kw_bZS55ojLnjWdEbAH6pWN2bCdMifTKLIfLG7X1tOrpvpG2JktC5dsmti-NyZJ0c2FfFyCuQJbQr5MjVDNfr1sJe4HpRhGYtTvioKz0wc" class="card-img imagen" alt="...">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">Ninja Dog</h5>
-              <p class="t card-text mt-1">Level: 10</p>
-              <p class="t card-tex mt-1">Experience: 10</p>
-              <button type="button" class="btn btn-secondary mt-4" data-toggle="modal" data-target="#exampleModal">
-               Skills
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ninja_Dog</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <p class="skills">Strength</p>
-            <div class="progress">
-              <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
-            </div>
-            <p class="skills">Speed</p>
-            <div class="progress">
-              <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
-            </div>
-            <p class="skills">Magic</p>
-            <div class="progress">
-              <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
-            </div>
-            <p class="skills">Health Points</p>
-            <div class="progress">
-              <div id="2"class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
-            </div>
-            <p class="skills">Intelligence</p>
-            <div class="progress">
-              <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-info">Fight!</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-</div> 
+  </div>
+</section>

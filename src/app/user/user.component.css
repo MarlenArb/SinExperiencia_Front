@@ -1,18 +1,35 @@
-.tarjeta{
-  background-color:rgba(4, 8, 37, 0.808);
-  color: white;
-  border-radius: 20px;
-  height: 120px;
-  cursor: pointer;
-}
-img{
-  border-radius: 20px 0px 0px 20px;
-  height: 120px;
+.texto{
+  display: inline-block;
+  margin-left: 20px;
 }
 
-.tarjeta:hover{
-  background-color: #2b6bb0da;
-  transition-duration: 1s;
-  box-shadow: 1px 3px 1px rgba(0, 0, 0, 0.418);
-  
+.picture{
+  height: 90%;
+  width: 90%;
+  margin-top: 10px;
+}
+
+.t{
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+#char-details .card{
+  color: white;
+  background: #163455a9;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px #3F3C3C;
+  transition: all 0.3s ease-in;
+  -webkit-transition: all 0.3s ease-in;
+  -moz-transition: all 0.3s ease-in;
+}
+
+#char-details .card:hover{
+  background: #193f77d3;
+  border: 1px solid black;
+  color: black;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 5px 5px 10px #9E9E9E;
 }
