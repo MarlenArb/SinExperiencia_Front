@@ -125,6 +125,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "sinexperiencia"
+    }
+  },
+  "defaultProject": "sinexperiencia",
+  "cli": {
+    "analytics": "613b571d-1c9b-42eb-9cb9-5b7fe75a0033"
+  }
 }
