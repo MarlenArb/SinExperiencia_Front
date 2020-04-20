@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital@1&display=swap'); /*font1*/
+@import url('https://fonts.googleapis.com/css2?family=Markazi+Text:wght@500&display=swap');
 
 html{
   position: relative;
@@ -12,4 +14,13 @@ body{
   background-repeat: no-repeat;
   background-size: 100% 100%;
   font-family: 'PT Serif', serif;
+}
+
+.font1{
+  font-family: 'Merriweather', serif;
+}
+
+.font2{
+  font-family: 'Markazi Text', serif;
+  font-size: 45px;
 }
