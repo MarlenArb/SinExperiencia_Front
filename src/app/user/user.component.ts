@@ -11,7 +11,9 @@ import { UserService } from './user.service';
 export class UserComponent implements OnInit {
 
   users: User[];
+  occupations = ["Jardinero", "Abogada","Ingeniero", "Diseñador", "Dependienta", "Panadera", "Mecánico"];
   constructor(private userService: UserService ) { }
+  filterOccupation = '';
 
   ngOnInit(): void {
     this.userService.getUsers().subscribe (
@@ -19,5 +21,4 @@ export class UserComponent implements OnInit {
     );
 
   }
-
 }

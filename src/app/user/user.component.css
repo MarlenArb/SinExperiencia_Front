@@ -18,12 +18,13 @@
 #char-details .card{
   color: white;
   background: #163455c2;
-  border: 1px solid black;
+  border: 1px solid rgb(248, 248, 248);
   border-radius: 5px;
   box-shadow: 3px 3px 15px #3F3C3C;
   transition: all 0.3s ease-in;
   -webkit-transition: all 0.3s ease-in;
   -moz-transition: all 0.3s ease-in;
+  animation: tilt-in-left-1 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 #char-details .card:hover{
@@ -36,8 +37,24 @@
 
 .title{
   color: white;
-  background:rgba(27, 34, 109, 0.671);
+  background:rgba(27, 34, 109, 0.137);
   /*border: 1px solid #FC9256d3;*/
-  border-radius: 5px;
   box-shadow: 3px 3px 15px rgba(37, 36, 36, 0.842);
+  border-bottom: 1px solid white;
+}
+
+.dt:hover{
+color: black !important;
+}
+
+.container{
+  background: #3d3d3d88;
+  box-shadow: inset 0px 0px 2px 1px white;
+  animation: fade-in 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+ 
+
+}
+
+.navbar{
+  animation: tilt-in-top-1 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }

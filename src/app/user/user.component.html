@@ -1,14 +1,32 @@
 <section id="char-details">
   <div class="font-text container mt-4">
 
+    <!--Titulo-->
     <div class="row mb-3">
       <div class="title col-sm-12 text-center">
         <h1 class="text-white font2">Candidatos</h1>
       </div>
     </div>
 
-    <div class="row">
-      <div *ngFor="let user of users">
+    <!--Filtros-->
+    <div class="row m-3">
+      <div class="col-12">
+        <nav class="navbar navbar-dark bg-dark filtro col-2">
+          <a class="nav-link dropdown-toggle pb-0 text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Profesión
+          </a>
+          <div class="dropdown-menu bg-dark text-white border-info" aria-labelledby="navbarDropdown">
+            <a  *ngFor="let occupation of occupations" class="dropdown-item dt" (click)="filterOccupation=occupation">{{occupation}}</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item dt" (click)="filterOccupation=''">TODOS</a>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <!--Listado Candidatos-->
+    <div class="row rowc">
+      <div *ngFor="let user of users | occupationFilter:filterOccupation">
         <div class="col-sm-6">
           <div class="card mb-3 tarjeta" style="width: 525px; cursor: pointer;">
             <div class="row no-gutters">
@@ -31,5 +49,6 @@
         </div>
       </div>
     </div>
+
   </div>
 </section>

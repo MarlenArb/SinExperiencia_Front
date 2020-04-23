@@ -10,6 +10,7 @@ import { UserComponent } from './user/user.component';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserService } from './user/user.service';
+import { OccupationFilterPipe } from './pipes/occupation-filter.pipe';
 
 
 
@@ -27,7 +28,8 @@ const routes: Routes = [
     FooterComponent,
     HomeComponent,
     UserComponent,
-    LoginComponent
+    LoginComponent,
+    OccupationFilterPipe
   ],
   imports: [
     BrowserModule,
