@@ -9,8 +9,9 @@ html{
 
 body{
   padding-bottom: 5%;
-  background: linear-gradient(rgb(161, 237, 250), rgb(255, 255, 255));
-  background-image:url("./assets/img/img5.jpg");
+  background: linear-gradient(rgb(199, 212, 226), rgb(198, 210, 224));
+ /* background-image:url("./assets/img/img5.jpg");*/
+  /*background-color: #f3f3f4;*/
   background-repeat: no-repeat;
   background-size: 100% 100%;
   font-family: 'PT Serif', serif;

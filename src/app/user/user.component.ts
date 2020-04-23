@@ -14,6 +14,10 @@ export class UserComponent implements OnInit {
   occupations = ["Jardinero", "Abogada","Ingeniero", "Diseñador", "Dependienta", "Panadera", "Mecánico"];
   constructor(private userService: UserService ) { }
   filterOccupation = '';
+  filterName = '';
+  filterExperience = '';
+  showFilters: boolean = false;
+  showNameBar: boolean = false;
 
   ngOnInit(): void {
     this.userService.getUsers().subscribe (

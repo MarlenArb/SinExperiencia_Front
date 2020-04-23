@@ -11,6 +11,8 @@ import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserService } from './user/user.service';
 import { OccupationFilterPipe } from './pipes/occupation-filter.pipe';
+import { NameFilterPipe } from './pipes/name-filter.pipe';
+import { ExperienceFilterPipe } from './pipes/experience-filter.pipe';
 
 
 
@@ -29,7 +31,9 @@ const routes: Routes = [
     HomeComponent,
     UserComponent,
     LoginComponent,
-    OccupationFilterPipe
+    OccupationFilterPipe,
+    NameFilterPipe,
+    ExperienceFilterPipe
   ],
   imports: [
     BrowserModule,

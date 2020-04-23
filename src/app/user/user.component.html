@@ -4,29 +4,62 @@
     <!--Titulo-->
     <div class="row mb-3">
       <div class="title col-sm-12 text-center">
-        <h1 class="text-white font2">Candidatos</h1>
+        <h1 class="text-white font2">Candidatos</h1>  
       </div>
     </div>
 
     <!--Filtros-->
     <div class="row m-3">
       <div class="col-12">
-        <nav class="navbar navbar-dark bg-dark filtro col-2">
-          <a class="nav-link dropdown-toggle pb-0 text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Profesión
+
+        <button type="button" class="btn btn-light col-12 mb-3" (click) = "showFilters = !showFilters || showNameBar = false">Filtrar Búsqueda</button>
+
+        <div class="filters" style="justify-items: center;" *ngIf="showFilters">
+          <!--Por profesion-->
+          <nav class="navbar navbar-dark bg-dark filtro col-4">
+            <a class="nav-link dropdown-toggle pb-0 text-white text-center" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Profesión
+            </a>
+            <div class="dropdown-menu bg-dark text-white border-info" aria-labelledby="navbarDropdown">
+              <a  *ngFor="let occupation of occupations" class="dropdown-item dt" (click)="filterOccupation=occupation">{{occupation}}</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item dt" (click)="filterOccupation=''">TODOS</a>
+            </div>
+          </nav>
+
+          <!--Por experiencia-->
+          <nav class="navbar navbar-dark bg-dark filtro col-4">
+            <a class="nav-link dropdown-toggle pb-0 text-white  text-center" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Experiencia
+            </a>
+            <div class="dropdown-menu bg-dark text-white border-info" aria-labelledby="navbarDropdown">
+              <a  *ngFor="let experience of occupations" class="dropdown-item dt" (click)="filterExperience=experience">{{experience}}</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item dt" (click)="filterExperience=''">TODOS</a>
+            </div>
+          </nav>
+
+        <!--Por nombre-->
+        <nav class="navbar navbar-dark bg-dark filtro col-3">
+          <a class="nav-link dropdown-toggle pb-0 text-white  text-center" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="showNameBar=!showNameBar">
+            Nombre
           </a>
-          <div class="dropdown-menu bg-dark text-white border-info" aria-labelledby="navbarDropdown">
-            <a  *ngFor="let occupation of occupations" class="dropdown-item dt" (click)="filterOccupation=occupation">{{occupation}}</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item dt" (click)="filterOccupation=''">TODOS</a>
-          </div>
         </nav>
+        <!--Entrada de nombre-->
+          <div class="col-12" *ngIf="showNameBar">
+            <span class="text-white" style="font-style: italic;">Buscar por nombre:</span>
+            <div class="form-group">
+              <input type="text" class="form-control titulo" name="filter" [(ngModel)]="filterName" placeholder="Ej: Pepa"  style="font-family: georgia,garamond,serif; font-style: italic;">
+            </div>
+          </div>
+
+        </div>
       </div>
-    </div>
+  </div>
 
     <!--Listado Candidatos-->
     <div class="row rowc">
-      <div *ngFor="let user of users | occupationFilter:filterOccupation">
+      <div *ngFor="let user of users | occupationFilter:filterOccupation | experienceFilter:filterExperience | nameFilter:filterName">
         <div class="col-sm-6">
           <div class="card mb-3 tarjeta" style="width: 525px; cursor: pointer;">
             <div class="row no-gutters">
