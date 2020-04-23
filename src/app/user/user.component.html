@@ -20,24 +20,32 @@
             <a class="nav-link dropdown-toggle pb-0 text-white text-center" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Profesión
             </a>
-            <div class="dropdown-menu bg-dark text-white border-info" aria-labelledby="navbarDropdown">
-              <a  *ngFor="let occupation of occupations" class="dropdown-item dt" (click)="filterOccupation=occupation">{{occupation}}</a>
+            <div class="dropdown-menu bg-dark text-white border-info col-12" aria-labelledby="navbarDropdown">
+              <a  *ngFor="let occupation of occupations" class="dropdown-item dt text-center" (click)="filterOccupation=occupation">{{occupation}}</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item dt" (click)="filterOccupation=''">TODOS</a>
+              <a class="dropdown-item dt text-center" (click)="filterOccupation=''">TODOS</a>
             </div>
           </nav>
 
           <!--Por experiencia-->
+
           <nav class="navbar navbar-dark bg-dark filtro col-4">
-            <a class="nav-link dropdown-toggle pb-0 text-white  text-center" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle pb-0 text-white  text-center" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="showExperienceOptions=!showExperienceOptions">
               Experiencia
             </a>
-            <div class="dropdown-menu bg-dark text-white border-info" aria-labelledby="navbarDropdown">
-              <a  *ngFor="let experience of occupations" class="dropdown-item dt" (click)="filterExperience=experience">{{experience}}</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item dt" (click)="filterExperience=''">TODOS</a>
-            </div>
           </nav>
+              <!--Subdropdown Experiencia-->
+              <div class="input-group mb-3" *ngIf="showExperienceOptions">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="inputGroupSelect01">Desde:</label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01">
+                  <option selected>Choose...</option>
+                  <option *ngFor="let year of years" value="year">{{year}} años</option>
+                </select>
+              </div>
+
+
 
         <!--Por nombre-->
         <nav class="navbar navbar-dark bg-dark filtro col-3">
