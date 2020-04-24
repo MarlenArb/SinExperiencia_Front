@@ -64,6 +64,15 @@ color: black !important;
   margin: 2px;
 }
 
+.colExperience{
+  animation: tilt-in-top-1 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  position: relative;
+  z-index: 1;
+  border-radius: 5px;
+  display: inline-block;
+  margin: 2px;
+}
+
 .nav-link, .a{
   padding: 2px;
   margin-right: 1px !important;
@@ -77,4 +86,8 @@ color: black !important;
 
 .subdrop{
   display: inline;
+}
+
+.yearSelect{
+  background: black;
 }

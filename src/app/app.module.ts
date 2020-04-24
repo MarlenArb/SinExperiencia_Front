@@ -13,6 +13,7 @@ import { UserService } from './user/user.service';
 import { OccupationFilterPipe } from './pipes/occupation-filter.pipe';
 import { NameFilterPipe } from './pipes/name-filter.pipe';
 import { ExperienceFilterPipe } from './pipes/experience-filter.pipe';
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 
 
@@ -20,7 +21,9 @@ const routes: Routes = [
   { path: "", redirectTo: "/userinterface", pathMatch: "full" },
   {path: 'home', component: HomeComponent},
   {path: 'user', component: UserComponent},
-  {path: 'login', component: LoginComponent}
+  {path: 'login', component: LoginComponent},
+  {path: 'userdetails', component: UserDetailsComponent},
+  {path: 'userdetails:name', component: UserDetailsComponent}
 
   ]
 @NgModule({
@@ -33,7 +36,8 @@ const routes: Routes = [
     LoginComponent,
     OccupationFilterPipe,
     NameFilterPipe,
-    ExperienceFilterPipe
+    ExperienceFilterPipe,
+    UserDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -19,7 +19,9 @@ export class UserComponent implements OnInit {
   showFilters: boolean = false;
   showNameBar: boolean = false;
   showExperienceOptions: boolean = false;
-  years: number[] = [0, 1, 2, 3, 4, 5, 10, 15, 20, 30];
+  years: number[] = [1, 2, 3, 4, 5, 10, 15, 20, 30];
+  forYear = null;
+  toYear = null;
 
   ngOnInit(): void {
     this.userService.getUsers().subscribe (

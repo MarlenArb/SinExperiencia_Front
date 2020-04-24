@@ -12,7 +12,7 @@
     <div class="row m-3">
       <div class="col-12">
 
-        <button type="button" class="btn btn-light col-12 mb-3" (click) = "showFilters = !showFilters || showNameBar = false">Filtrar Búsqueda</button>
+        <button type="button" class="btn btn-light col-12 mb-3" (click) = "showFilters = !showFilters || showNameBar = false  || showExperienceOptions = false">Filtrar Búsqueda</button>
 
         <div class="filters" style="justify-items: center;" *ngIf="showFilters">
           <!--Por profesion-->
@@ -28,22 +28,36 @@
           </nav>
 
           <!--Por experiencia-->
+          <div class="col-4 colExperience">
+            <nav class="navbar navbar-dark bg-dark filtro col-12">
+              <a class="nav-link dropdown-toggle pb-0 text-white  text-center" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="showExperienceOptions=!showExperienceOptions">
+                Experiencia
+              </a>
+            </nav>
 
-          <nav class="navbar navbar-dark bg-dark filtro col-4">
-            <a class="nav-link dropdown-toggle pb-0 text-white  text-center" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="showExperienceOptions=!showExperienceOptions">
-              Experiencia
-            </a>
-          </nav>
               <!--Subdropdown Experiencia-->
               <div class="input-group mb-3" *ngIf="showExperienceOptions">
-                <div class="input-group-prepend">
+
+                <!--Desde-->
+                <div class="input-group-prepend yearSelect">
                   <label class="input-group-text" for="inputGroupSelect01">Desde:</label>
                 </div>
                 <select class="custom-select" id="inputGroupSelect01">
-                  <option selected>Choose...</option>
-                  <option *ngFor="let year of years" value="year">{{year}} años</option>
+                  <option selected>0 años</option>
+                  <option *ngFor="let year of years" value="year" [(ngValue)]="forYear" >{{year}} años</option>
                 </select>
+
+                <!--Hasta-->
+                <div class="input-group-prepend yearSelect">
+                  <label class="input-group-text" for="inputGroupSelect01">Hasta:</label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01">
+                  <option selected>0 años</option>
+                  <option *ngFor="let year of years" value="year"  [(ngValue)]="toYear">{{year}} años</option>
+                </select>
+
               </div>
+            </div>
 
 
 
@@ -67,7 +81,7 @@
 
     <!--Listado Candidatos-->
     <div class="row rowc">
-      <div *ngFor="let user of users | occupationFilter:filterOccupation | experienceFilter:filterExperience | nameFilter:filterName">
+      <div *ngFor="let user of users | occupationFilter:filterOccupation | experienceFilter:toYear:forYear | nameFilter:filterName">
         <div class="col-sm-6">
           <div class="card mb-3 tarjeta" style="width: 525px; cursor: pointer;">
             <div class="row no-gutters">
