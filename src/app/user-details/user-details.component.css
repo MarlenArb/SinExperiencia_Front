@@ -1,0 +1,27 @@
+.aside-bar{
+  background-color: #f8f9fa !important;
+}
+
+.container2{
+  background: #3d3d3d88;
+}
+
+.image{
+  box-shadow: 4px 5px 3px #00000026;
+  margin: 5px;
+}
+
+.image:hover{
+  box-shadow: 7px 8px 3px #00000026;
+  transform:scale(1.05);
+}
+
+.png{
+  filter: drop-shadow(4px 5px 3px #00000026);
+}
+
+
+.png:hover{
+  transform:scale(1.05);
+  filter: drop-shadow(7px 8px 3px #00000034);
+}
