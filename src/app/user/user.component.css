@@ -51,6 +51,11 @@ color: black !important;
   box-shadow: inset 0px 0px 2px 1px rgb(112, 115, 122);
   animation: fade-in 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
   border-radius: 5px;
+  border: 2px solid white;
+  box-shadow: -1px 1px 0 #000, 
+              1px 1px 0 #000, 
+              1px -1px 0 #000,
+              -1px -1px 0 #000;
  
 
 }
@@ -91,3 +96,8 @@ color: black !important;
 .yearSelect{
   background: black;
 }
+
+.yearSel{
+  background: rgba(27, 34, 109, 0.137);
+}
+
