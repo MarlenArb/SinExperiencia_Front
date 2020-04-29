@@ -1,3 +1,73 @@
+<nav class="font-text navbar navbar-expand-lg navbar-dark bg-dark shadow-lg sticky-top">
+  <a class="navbar-brand" routerLink="/home">{{title}}</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+    <ul class="navbar-nav mr-auto">
+
+      <li *ngIf="authService.isAuthenticated()" class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/userinterface">Jugadores</a>
+      </li>
+
+      <li *ngIf="authService.isAuthenticated()" class="nav-item" routerLinkActive="active">
+        <a *ngIf="authService.hasRole('ROLE_ADMIN')" class="nav-link" routerLink="/user">Usuarios</a>
+      </li>
+
+      <li *ngIf="authService.isAuthenticated()" class="nav-item" routerLinkActive="active">
+        <a *ngIf="authService.hasRole('ROLE_ADMIN')" class="nav-link" routerLink="/character">Personajes</a>
+      </li>
+
+      <li *ngIf="authService.hasRole('ROLE_ADMIN')" class="nav-item dropdown" routerLinkActive="active">
+        <a class="nav-link dropdown-toggle" style="cursor: pointer;" data-toggle="dropdown">Habilidades</a>
+        <div class="dropdown-menu">
+          <a routerLink="/characters/rol" class="dropdown-item">Habilidades</a>
+          <a routerLink="/skill" class="dropdown-item">Gestionar</a>
+        </div>
+      </li>
+
+      <li *ngIf="authService.isAuthenticated()" class="nav-item" routerLinkActive="active">
+        <a *ngIf="authService.hasRole('ROLE_USER')" class="nav-link" routerLink="/characters/rol">Habilidades</a>
+      </li>
+
+      <li *ngIf="authService.isAuthenticated()" class="nav-item" routerLinkActive="active">
+        <a *ngIf="authService.hasRole('ROLE_ADMIN')" class="nav-link" routerLink="/battle">Batalla</a>
+      </li>
+
+    </ul>
+
+    <ul class="navbar-nav navbar-right">
+
+      <li *ngIf="!authService.isAuthenticated()"> <a routerLink="/login" class="btn btn-outline-dark text-white"
+          role="button">
+          Iniciar sesión</a>
+      </li>
+
+      <li *ngIf="authService.isAuthenticated()" class="dropdown text-white">
+        <a class="btn btn-outline-dark dropdown-toggle text-white" href="#" role="button" id="dropdownMenuLink"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img *ngIf="authService.hasRole('ROLE_ADMIN')" src="http://localhost:8090/imgs/king.png" class="rounded vd"
+            style="width: 30px; height: 30px;" alt="admin">
+          <img *ngIf="authService.hasRole('ROLE_USER')" src="http://localhost:8090/imgs/peasant.png" class="rounded vd"
+            style="width: 30px; height: 30px;" alt="user">
+          {{authService.credentials.name}}
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+          <button (click)="logout()" class="dropdown-item" type="submit">Cerrar sesión</button>
+        </div>
+      </li>
+
+    </ul>
+
+  </div>
+
+</nav>
+
+<!--
+
 <nav class="navbar navbar-expand-lg navbar-dark font1" style="background-color: #2b6bb0a9;">
   <a class="navbar-brand" href="#">
     <img src="https://cdn.icon-icons.com/icons2/809/PNG/128/university_cap_icon-icons.com_66109.png" width="30" height="30" class="d-inline-block align-top" alt="">
@@ -36,3 +106,4 @@
   </div>
   <button type="button" class="btn btn-outline-light mr-2"  routerLink="/login">Iniciar sesión</button>
 </nav>
+-->

@@ -1,0 +1,185 @@
+<!-- VALIDACIONES -->
+<div class="container" *ngIf="this.userService.validaciones?.length>0">
+  <div class="alert alert-danger" role="alert" *ngFor="let validacion of this.userService.validaciones">
+    {{validacion}}
+  </div>
+</div>
+
+<!-- CONTENEDOR PRINCIPAL -->
+<div class="container">
+
+  <div class="card mt-4 bg-style">
+
+    <!-- HEADER -->
+    <div class="card-header">
+
+      <span *ngIf="!user.idUser">Crear Usuario</span>
+      <span *ngIf="user.idUser">Editar Usuario</span>
+
+      <button type="button" class="close" aria-label="Close" (click)='return()'>
+        <span aria-hidden="true" class="text-white">&times;</span>
+      </button>
+
+    </div>
+
+    <!-- BODY -->
+    <div class="card-body">
+
+      <div class="container">
+
+        <form #userForm="ngForm">
+
+          <div class="row">
+
+            <div class="col-1"></div>
+
+            <div class="col-5">
+
+              <div class="form-group row">
+                <label for="username" class="col-form-label col-4">Usuario</label>
+                <div class="col">
+                  <input type="text" class="form-control" [(ngModel)]="user.name" name="username" required minlength="3" #user_name="ngModel">
+                  <div class="alert alert-danger" *ngIf="user_name.invalid && (user_name.dirty || user_name.touched)">
+                    <div *ngIf="user_name.errors.required">
+                      Es necesario especificar un nombre se usuario
+                    </div>
+                    <div *ngIf="user_name.errors.minlength">
+                      Es necesario un mín de 3 caracteres para el nombre de usuario
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="col-5">
+
+              <div class="form-group row" id="show_hide_password">
+                <label for="pass" class="col-form-label col-4">Contraseña</label>
+                <div class="input-group col">
+                  <input type="password" id="toggle" class="form-control" [(ngModel)]="user.password" name="password" minlength="3" required #pass="ngModel">
+                  <div class="alert alert-danger" *ngIf="pass.invalid && (pass.dirty || pass.touched)">
+                    <div *ngIf="pass.errors.required">
+                      Es necesario especificar una contraseña
+                    </div>
+                    <div *ngIf="pass.errors.minlength">
+                      La contraseña debe tener mínimo 3 caracteres
+                    </div>
+                  </div>
+                  <!--
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" style="width: 50px;" type="button" id="buttonPass" (click)="togglePwd()">
+                      <i class="fa fa-eye" *ngIf="!showEye else elseBl"></i>
+                      <ng-template #elseBl>
+                        <i class="fa fa-eye-slash"></i>
+                      </ng-template>
+                    </button>
+                  </div>
+                  -->
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="row">
+
+            <div class="col-1"></div>
+
+            <div class="col-10">
+
+              <div class="form-group row">
+                <label for="correo" class="col-form-label col-2">Correo</label>
+                <div class="col">
+                  <input type="email" class="form-control" [(ngModel)]="user.mail" name="mail" required email #correo="ngModel">
+                  <div class="alert alert-danger" *ngIf="correo.invalid && (correo.dirty || correo.touched)">
+                    <div *ngIf="correo.errors.required">
+                      Es necesario especificar una dirección de correo
+                    </div>
+                    <div *ngIf="correo.errors.email">
+                      El correo no tiene un formato válido
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="row">
+
+            <div class="col-1"></div>
+
+            <div class="col-5">
+
+              <div class="form-group row">
+                <label for="birthdate" class="col-form-label col-4">Fecha Nac.</label>
+                <div class="col">
+                  <input type="date" class="form-control" [(ngModel)]="user.birthdate" name="birthdate" required #fecha="ngModel">
+                  <div class="alert alert-danger" *ngIf="fecha.invalid && (fecha.dirty || fecha.touched)">
+                    <div *ngIf="fecha.errors.required">
+                      Es necesario especificar una fecha de nacimiento
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="col-2">
+
+              <div class="form-group row">
+                <label for="country" class="col-form-label col-4">País</label>
+                <div class="col">
+                  <input type="text" class="form-control" [(ngModel)]="user.country" name="country" required #pais="ngModel">
+                  <div class="alert alert-danger" *ngIf="pais.invalid && (pais.dirty || pais.touched)">
+                    <div *ngIf="pais.errors.required">
+                      Es necesario especificar un pais
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="col-3">
+
+              <div class="form-group row">
+                <label for="categoria" class="col-form-label col-3">Rol</label>
+                <div class="col">
+                  <select name="roles" [compareWith]="compareRoles" class="form-control" [(ngModel)]="user.rol" #roll="ngModel">
+                    <option *ngFor="let rolOption of roles" [ngValue]="rolOption">{{ rolOption.name }}</option>
+                  </select>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="card-footer">
+
+      <button class="btn accept float-right" style="width: 100px;" role="button" (click)='addUser()' *ngIf="!user.idUser else elseBlock" [disabled]="!userForm.form.valid">
+        Crear
+      </button>
+
+      <ng-template #elseBlock>
+        <button class="btn accept float-right" style="width: 100px;" role="button" (click)='modifyUser()' [disabled]="!userForm.form.valid">
+          Editar
+        </button>
+      </ng-template>
+
+    </div>
+
+  </div>
+
+</div>

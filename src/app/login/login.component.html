@@ -1,4 +1,4 @@
-
+<!--
 <div class="justify-content-center mt-5">
 
 
@@ -23,3 +23,25 @@
     </form>
   </div>
 </div>
+
+
+-->
+
+
+<form class="form-signin card my-5 bg-style">
+
+
+  <h1 class="h3 mb-3 font-weight-normal text-center">
+      Por favor, inicia sesión
+  </h1>
+  
+  <label for="inputUsername" class="sr-only">Usuario</label>
+  <input [(ngModel)]="credentials.username" type="text" class="form-control my-2" name="username" id="username" placeholder="Usuario" autofocus required>
+  
+  <label for="inputPassword" class="sr-only">Contraseña</label>
+  <input [(ngModel)]="credentials.password" type="password" class="form-control" name="password" id="password" placeholder="Contraseña" required>
+
+  <input (click)='login()' type="submit" class="btn btn-lg btn-primary btn-block" value="Iniciar sesión">
+
+
+</form>

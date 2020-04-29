@@ -18,6 +18,8 @@ import { UserInterfaceComponent } from './user-interface/user-interface.componen
 import { AuthService } from './login/auth.service';
 import localeEs from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
+import { FormComponent } from './user/form.component';
+import { SecurityConfigComponent } from './security-config/security-config.component';
 
 registerLocaleData(localeEs, 'es');
 
@@ -29,6 +31,8 @@ const routes: Routes = [
   {path: 'userdetails', component: UserDetailsComponent},
   {path: 'userdetails/:name', component: UserDetailsComponent},
   {path: 'userinterface', component: UserInterfaceComponent},
+  { path: 'user/form', component: FormComponent },
+  { path: 'user/form/:idUser', component: FormComponent }
 
   ]
 
@@ -44,7 +48,9 @@ const routes: Routes = [
     NameFilterPipe,
     ExperienceFilterPipe,
     UserDetailsComponent,
-    UserInterfaceComponent
+    UserInterfaceComponent,
+    FormComponent,
+    SecurityConfigComponent
   ],
   imports: [
     BrowserModule,
