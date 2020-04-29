@@ -17,6 +17,7 @@ body{
   font-family: 'PT Serif', serif;
 }
 
+/*Título*/
 .my-title-container{
   font-family: 'Markazi Text', serif;
   font-size: 45px;
@@ -37,6 +38,8 @@ body{
   font-size: 45px;
 }
 
+
+/*Cuerpo Generico*/
 .my-container{
   background: #3d3d3d88;
   box-shadow: inset 0px 0px 2px 1px rgb(112, 115, 122);
@@ -49,4 +52,22 @@ body{
               -1px -1px 0 #000;
  
 
+}
+
+/*Cuerpo Formulario*/
+.my-form{
+  background-color: rgba(4, 8, 37, 0.808);
+  padding: 50px;
+  color: white;
+  font-family: 'PT Serif', serif;
+  border-radius: 20px;
+ /* width: 60%;*/
+  box-shadow: 4px 3px 2px black;
+}
+
+.table-font{
+  font-family: 'Markazi Text', serif;
+  font-size: 22px;
+  font-weight: normal !important;
+  text-align: center;
 }

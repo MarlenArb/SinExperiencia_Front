@@ -6,18 +6,18 @@
 </div>
 
 <!-- CONTENEDOR PRINCIPAL -->
-<div class="container">
+<div class="container-fluid container1 p-0 mt-5">
 
-  <div class="card mt-4 bg-style">
+  <div class="card">
 
     <!-- HEADER -->
-    <div class="card-header">
+    <div class="card-header borde-sup">
 
       <span *ngIf="!user.idUser">Crear Usuario</span>
       <span *ngIf="user.idUser">Editar Usuario</span>
 
-      <button type="button" class="close" aria-label="Close" (click)='return()'>
-        <span aria-hidden="true" class="text-white">&times;</span>
+      <button type="button" class="close" aria-label="Close" style="color: #163f6bfd;" (click)='return()'>
+        <span aria-hidden="true" class="">&times;</span>
       </button>
 
     </div>
@@ -29,6 +29,7 @@
 
         <form #userForm="ngForm">
 
+          <!--Fila 1-->
           <div class="row">
 
             <div class="col-1"></div>
@@ -57,25 +58,13 @@
               <div class="form-group row" id="show_hide_password">
                 <label for="pass" class="col-form-label col-4">Contraseña</label>
                 <div class="input-group col">
-                  <input type="password" id="toggle" class="form-control" [(ngModel)]="user.password" name="password" minlength="3" required #pass="ngModel">
+                  <input type="password" id="toggle" class="form-control" [(ngModel)]="user.password" name="password"  required #pass="ngModel">
                   <div class="alert alert-danger" *ngIf="pass.invalid && (pass.dirty || pass.touched)">
                     <div *ngIf="pass.errors.required">
                       Es necesario especificar una contraseña
                     </div>
-                    <div *ngIf="pass.errors.minlength">
-                      La contraseña debe tener mínimo 3 caracteres
-                    </div>
                   </div>
-                  <!--
-                  <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" style="width: 50px;" type="button" id="buttonPass" (click)="togglePwd()">
-                      <i class="fa fa-eye" *ngIf="!showEye else elseBl"></i>
-                      <ng-template #elseBl>
-                        <i class="fa fa-eye-slash"></i>
-                      </ng-template>
-                    </button>
-                  </div>
-                  -->
+
                 </div>
               </div>
 
@@ -83,6 +72,7 @@
 
           </div>
 
+          <!--Fila 2-->
           <div class="row">
 
             <div class="col-1"></div>
@@ -115,7 +105,38 @@
             <div class="col-5">
 
               <div class="form-group row">
-                <label for="birthdate" class="col-form-label col-4">Fecha Nac.</label>
+                <label for="username" class="col-form-label col-4">Profesión</label>
+                <div class="col">
+                  <input type="text" class="form-control" [(ngModel)]="user.occupation" name="username" required>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="col-5">
+
+              <div class="form-group row" id="show_hide_password">
+                <label for="pass" class="col-form-label col-4">Experiencia</label>
+                <div class="input-group col">
+                  <input type="text" id="toggle" class="form-control" [(ngModel)]="user.experience" name="password" placeholder="15 años" required>
+
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        
+
+          <!--Fila 4-->
+          <div class="row">
+
+            <div class="col-1"></div>
+
+            <div class="col-5">
+
+              <div class="form-group row">
+                <label for="birthdate" class="col-form-label col-4">F. Nacimiento</label>
                 <div class="col">
                   <input type="date" class="form-control" [(ngModel)]="user.birthdate" name="birthdate" required #fecha="ngModel">
                   <div class="alert alert-danger" *ngIf="fecha.invalid && (fecha.dirty || fecha.touched)">
@@ -166,7 +187,7 @@
     </div>
 
     <!-- FOOTER -->
-    <div class="card-footer">
+    <div class="card-footer borde-inf">
 
       <button class="btn accept float-right" style="width: 100px;" role="button" (click)='addUser()' *ngIf="!user.idUser else elseBlock" [disabled]="!userForm.form.valid">
         Crear

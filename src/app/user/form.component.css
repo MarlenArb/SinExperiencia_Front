@@ -1,0 +1,23 @@
+.btn{
+  background: #2b6bb0fd;
+  color: white;
+}
+
+.btn:hover{
+  background: #4d87adfd ;
+}
+
+.container1{
+  border: 4px solid #2b6bb0fd;
+  border-radius: 2px;
+  background: #2b6bb08e;
+}
+
+.borde-inf{
+  border-top: 2px solid #2b6bb0fd;
+}
+
+.borde-sup{
+  border-bottom: 2px solid #2b6bb0fd;
+}
+
