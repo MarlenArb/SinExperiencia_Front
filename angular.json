@@ -26,7 +26,8 @@
             "styles": [
               "src/styles.css",
               "src/assets/css/bootstrap.min.css",
-              "node_modules/@fortawesome/fontawesome-free/css/all.css"
+              "node_modules/@fortawesome/fontawesome-free/css/all.css",
+              "src/assets/css/my-transitions.css"
             ],
             "scripts": [
               "src/assets/js/jquery-3.4.1.slim.min.js",

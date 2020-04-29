@@ -21,10 +21,6 @@
   border: 1px solid rgb(248, 248, 248);
   border-radius: 5px;
   box-shadow: 3px 3px 15px #3F3C3C;
-  transition: all 0.3s ease-in;
-  -webkit-transition: all 0.3s ease-in;
-  -moz-transition: all 0.3s ease-in;
-  animation: tilt-in-left-1 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 #char-details .card:hover{
@@ -35,33 +31,13 @@
   box-shadow: 3px 3px 10px #9E9E9E;
 }
 
-.title{
-  color: white;
-  background:rgba(27, 34, 109, 0.137);
-  box-shadow: 0px 3px 3px 0px rgba(37, 36, 36, 0.459);
-  border-bottom: 1px solid white;
-}
 
 .dt:hover{
 color: black !important;
 }
 
-.container{
-  background: #3d3d3d88;
-  box-shadow: inset 0px 0px 2px 1px rgb(112, 115, 122);
-  animation: fade-in 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-  border-radius: 5px;
-  border: 2px solid white;
-  box-shadow: -1px 1px 0 #000, 
-              1px 1px 0 #000, 
-              1px -1px 0 #000,
-              -1px -1px 0 #000;
- 
-
-}
 
 .navbar{
-  animation: tilt-in-top-1 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
   position: relative;
   z-index: 1;
   border-radius: 5px;
@@ -70,7 +46,6 @@ color: black !important;
 }
 
 .colExperience{
-  animation: tilt-in-top-1 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
   position: relative;
   z-index: 1;
   border-radius: 5px;
