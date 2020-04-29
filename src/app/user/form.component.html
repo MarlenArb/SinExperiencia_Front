@@ -5,202 +5,205 @@
   </div>
 </div>
 
-<!-- CONTENEDOR PRINCIPAL -->
-<div class="container-fluid container1 p-0 mt-5 form-font">
+<div class="my-container container-fluid mt-4">
 
-  <div class="card">
-
-    <!-- HEADER -->
-    <div class="card-header text-white bg-dark borde-sup">
-
-      <span *ngIf="!user.idUser">Crear Usuario</span>
-      <span *ngIf="user.idUser">Editar Usuario</span>
-
-      <button type="button" class="close text-white" aria-label="Close" (click)='return()'>
-        <span aria-hidden="true" class="">&times;</span>
-      </button>
-
+     <!--Titulo-->
+     <div class="row mb-3">
+      <div class="title col-sm-12 my-title-container">
+          <h1 *ngIf="!user.idUser">Crear Usuario</h1>
+          <h1 *ngIf="user.idUser">Editar Usuario</h1>
+      </div>
     </div>
 
-    <!-- BODY -->
-    <div class="card-body">
 
-      <div class="container">
 
-        <form #userForm="ngForm">
+  <!-- CONTENEDOR PRINCIPAL -->
+  <div class="container-fluid p-4  form-font">
 
-          <!--Fila 1-->
-          <div class="row">
+    <div class="card">
 
-            <div class="col-1"></div>
-
-            <div class="col-5">
-
-              <div class="form-group row">
-                <label for="username" class="col-form-label col-4">Usuario</label>
-                <div class="col">
-                  <input type="text" class="form-control" [(ngModel)]="user.name" name="username" required minlength="3" #user_name="ngModel">
-                  <div class="alert alert-danger" *ngIf="user_name.invalid && (user_name.dirty || user_name.touched)">
-                    <div *ngIf="user_name.errors.required">
-                      Es necesario especificar un nombre se usuario
-                    </div>
-                    <div *ngIf="user_name.errors.minlength">
-                      Es necesario un mín de 3 caracteres para el nombre de usuario
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-            <div class="col-5">
-
-              <div class="form-group row" id="show_hide_password">
-                <label for="pass" class="col-form-label col-4">Contraseña</label>
-                <div class="input-group col">
-                  <input type="password" id="toggle" class="form-control" [(ngModel)]="user.password" name="password"  required #pass="ngModel">
-                  <div class="alert alert-danger" *ngIf="pass.invalid && (pass.dirty || pass.touched)">
-                    <div *ngIf="pass.errors.required">
-                      Es necesario especificar una contraseña
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-
-            </div>
-
-          </div>
-
-          <!--Fila 2-->
-          <div class="row">
-
-            <div class="col-1"></div>
-
-            <div class="col-10">
-
-              <div class="form-group row">
-                <label for="correo" class="col-form-label col-2">Correo</label>
-                <div class="col">
-                  <input type="email" class="form-control" [(ngModel)]="user.mail" name="mail" required email #correo="ngModel">
-                  <div class="alert alert-danger" *ngIf="correo.invalid && (correo.dirty || correo.touched)">
-                    <div *ngIf="correo.errors.required">
-                      Es necesario especificar una dirección de correo
-                    </div>
-                    <div *ngIf="correo.errors.email">
-                      El correo no tiene un formato válido
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-          </div>
-
-          <div class="row">
-
-            <div class="col-1"></div>
-
-            <div class="col-5">
-
-              <div class="form-group row">
-                <label for="username" class="col-form-label col-4">Profesión</label>
-                <div class="col">
-                  <input type="text" class="form-control" [(ngModel)]="user.occupation" name="username" required>
-                </div>
-              </div>
-
-            </div>
-
-            <div class="col-5">
-
-              <div class="form-group row" id="show_hide_password">
-                <label for="pass" class="col-form-label col-4">Experiencia</label>
-                <div class="input-group col">
-                  <input type="text" id="toggle" class="form-control" [(ngModel)]="user.experience" name="password" placeholder="15 años" required>
-
-                </div>
-              </div>
-
-            </div>
-
-          </div>
+      <!-- BODY -->
+      <div class="card-body">
+        <button type="button" class="close" aria-label="Close" (click)='return()'>
+          <span aria-hidden="true" class="">&times;</span>
+        </button>
         
+        <div class="container">
 
-          <!--Fila 4-->
-          <div class="row">
+          <form #userForm="ngForm">
 
-            <div class="col-1"></div>
+            <!--Fila 1-->
+            <div class="row">
 
-            <div class="col-5">
+              <div class="col-1"></div>
 
-              <div class="form-group row">
-                <label for="birthdate" class="col-form-label col-4">F. Nacimiento</label>
-                <div class="col">
-                  <input type="date" class="form-control" [(ngModel)]="user.birthdate" name="birthdate" required #fecha="ngModel">
-                  <div class="alert alert-danger" *ngIf="fecha.invalid && (fecha.dirty || fecha.touched)">
-                    <div *ngIf="fecha.errors.required">
-                      Es necesario especificar una fecha de nacimiento
+              <div class="col-5">
+
+                <div class="form-group row">
+                  <label for="username" class="col-form-label col-4">Usuario</label>
+                  <div class="col">
+                    <input type="text" class="form-control" [(ngModel)]="user.name" name="username" required minlength="3" #user_name="ngModel">
+                    <div class="alert alert-danger" *ngIf="user_name.invalid && (user_name.dirty || user_name.touched)">
+                      <div *ngIf="user_name.errors.required">
+                        Es necesario especificar un nombre se usuario
+                      </div>
+                      <div *ngIf="user_name.errors.minlength">
+                        Es necesario un mín de 3 caracteres para el nombre de usuario
+                      </div>
                     </div>
                   </div>
                 </div>
+
+              </div>
+
+              <div class="col-5">
+
+                <div class="form-group row" id="show_hide_password">
+                  <label for="pass" class="col-form-label col-4">Contraseña</label>
+                  <div class="input-group col">
+                    <input type="password" id="toggle" class="form-control" [(ngModel)]="user.password" name="password"  required #pass="ngModel">
+                    <div class="alert alert-danger" *ngIf="pass.invalid && (pass.dirty || pass.touched)">
+                      <div *ngIf="pass.errors.required">
+                        Es necesario especificar una contraseña
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
               </div>
 
             </div>
 
-            <div class="col-2">
+            <!--Fila 2-->
+            <div class="row">
 
-              <div class="form-group row">
-                <label for="country" class="col-form-label col-5">País</label>
-                <div class="col">
-                  <input type="text" class="form-control" [(ngModel)]="user.country" name="country" required #pais="ngModel">
-                  <div class="alert alert-danger" *ngIf="pais.invalid && (pais.dirty || pais.touched)">
-                    <div *ngIf="pais.errors.required">
-                      Es necesario especificar un pais
+              <div class="col-1"></div>
+
+              <div class="col-10">
+
+                <div class="form-group row">
+                  <label for="correo" class="col-form-label col-2">Correo</label>
+                  <div class="col">
+                    <input type="email" class="form-control" [(ngModel)]="user.mail" name="mail" required email #correo="ngModel">
+                    <div class="alert alert-danger" *ngIf="correo.invalid && (correo.dirty || correo.touched)">
+                      <div *ngIf="correo.errors.required">
+                        Es necesario especificar una dirección de correo
+                      </div>
+                      <div *ngIf="correo.errors.email">
+                        El correo no tiene un formato válido
+                      </div>
                     </div>
                   </div>
                 </div>
+
               </div>
 
             </div>
 
-            <div class="col-3">
+            <div class="row">
 
-              <div class="form-group row">
-                <label for="categoria" class="col-form-label col-3">Rol</label>
-                <div class="col">
-                  <select name="roles" [compareWith]="compareRoles" class="form-control" [(ngModel)]="user.rol" #roll="ngModel">
-                    <option *ngFor="let rolOption of roles" [ngValue]="rolOption">{{ rolOption.name }}</option>
-                  </select>
+              <div class="col-1"></div>
+
+              <div class="col-5">
+
+                <div class="form-group row">
+                  <label for="username" class="col-form-label col-4">Profesión</label>
+                  <div class="col">
+                    <input type="text" class="form-control" [(ngModel)]="user.occupation" name="username" required>
+                  </div>
                 </div>
+
+              </div>
+
+              <div class="col-5">
+
+                <div class="form-group row" id="show_hide_password">
+                  <label for="pass" class="col-form-label col-4">Experiencia</label>
+                  <div class="input-group col">
+                    <input type="text" id="toggle" class="form-control" [(ngModel)]="user.experience" name="password" placeholder="15 años" required>
+
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          
+
+            <!--Fila 4-->
+            <div class="row">
+
+              <div class="col-1"></div>
+
+              <div class="col-5">
+
+                <div class="form-group row">
+                  <label for="birthdate" class="col-form-label col-4">Fecha Nac.</label>
+                  <div class="col">
+                    <input type="date" class="form-control" [(ngModel)]="user.birthdate" name="birthdate" required #fecha="ngModel">
+                    <div class="alert alert-danger" *ngIf="fecha.invalid && (fecha.dirty || fecha.touched)">
+                      <div *ngIf="fecha.errors.required">
+                        Es necesario especificar una fecha de nacimiento
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="col-2">
+
+                <div class="form-group row">
+                  <label for="country" class="col-form-label col-5">País</label>
+                  <div class="col">
+                    <input type="text" class="form-control" [(ngModel)]="user.country" name="country" required #pais="ngModel">
+                    <div class="alert alert-danger" *ngIf="pais.invalid && (pais.dirty || pais.touched)">
+                      <div *ngIf="pais.errors.required">
+                        Es necesario especificar un pais
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="col-3">
+
+                <div class="form-group row">
+                  <label for="categoria" class="col-form-label col-3">Rol</label>
+                  <div class="col">
+                    <select name="roles" [compareWith]="compareRoles" class="form-control" [(ngModel)]="user.rol" #roll="ngModel">
+                      <option *ngFor="let rolOption of roles" [ngValue]="rolOption">{{ rolOption.name }}</option>
+                    </select>
+                  </div>
+                </div>
+
               </div>
 
             </div>
 
+          </form>
+
+          <div class="text-white">
+
+            <button class="btn accept float-right" style="width: 100px;" role="button" (click)='addUser()' *ngIf="!user.idUser else elseBlock" [disabled]="!userForm.form.valid">
+              Crear
+            </button>
+    
+            <ng-template #elseBlock>
+              <button class="btn accept float-right" style="width: 100px;" role="button" (click)='modifyUser()' [disabled]="!userForm.form.valid">
+                Editar
+              </button>
+            </ng-template>
+    
           </div>
 
-        </form>
+        </div>
 
       </div>
 
     </div>
 
-    <!-- FOOTER -->
-    <div class="card-footer borde-inf text-white bg-dark">
-
-      <button class="btn accept float-right" style="width: 100px;" role="button" (click)='addUser()' *ngIf="!user.idUser else elseBlock" [disabled]="!userForm.form.valid">
-        Crear
-      </button>
-
-      <ng-template #elseBlock>
-        <button class="btn accept float-right" style="width: 100px;" role="button" (click)='modifyUser()' [disabled]="!userForm.form.valid">
-          Editar
-        </button>
-      </ng-template>
-
-    </div>
-
   </div>
-
 </div>
