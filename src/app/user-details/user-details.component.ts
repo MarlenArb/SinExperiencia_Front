@@ -12,5 +12,14 @@ export class UserDetailsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+/*   loadUser(): void {
+    this.activatedRoute.params.subscribe(params => {
+      let id = params['id']
+      if (id) {
+        this.userService.getCharacter(id).subscribe((character1) => this.character1 = character1);
+      }
+    })
+  } */
+
 }
  

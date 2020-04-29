@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from './user';
-import { USERS } from './USERS.json';
+import  swal  from 'sweetalert2'
 import { UserService } from './user.service';
 
 @Component({
@@ -9,19 +9,11 @@ import { UserService } from './user.service';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
+ 
+  constructor(private userService: UserService ) { }
 
   users: User[];
   occupations = ["Jardinero", "Abogada","Ingeniero", "Diseñador", "Dependienta", "Panadera", "Mecánico"];
-  constructor(private userService: UserService ) { }
-  filterOccupation = '';
-  filterName = '';
-  filterExperience = '';
-  showFilters: boolean = false;
-  showNameBar: boolean = false;
-  showExperienceOptions: boolean = false;
-  years: number[] = [1, 2, 3, 4, 5, 10, 15, 20, 30];
-  forYear = '';
-  toYear = '';
 
   ngOnInit(): void {
     this.userService.getUsers().subscribe (
@@ -29,4 +21,34 @@ export class UserComponent implements OnInit {
     );
 
   }
+
+   //Borrar usuario
+   deleteUser( user: User) :void{
+
+    swal.fire({
+      title: '¿Estás seguro?',
+      text: `¿Deseas eliminar el usuario ${user.name}?`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: '¡Sí, eliminar!',
+      cancelButtonText: '¡No, cancelar!',
+      cancelButtonColor: '#DC3545',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.value) {
+        this.userService.deleteUser(user.idUser).subscribe(
+          response => {
+            this.users = this.users.filter(us => us !== user)
+            swal.fire(
+              '¡Eliminado!',
+              `El usuario ${user.name} ha sido eliminado con éxito`,
+              'success'
+            )
+          } 
+        )
+      }
+    })
+    
+  }
+  
 }

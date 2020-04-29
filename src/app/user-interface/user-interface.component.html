@@ -1,0 +1,108 @@
+<section id="char-details">
+  <div class="font-text container mt-4">
+
+    <!--Titulo-->
+    <div class="row mb-3">
+      <div class="title col-sm-12 text-center">
+        <h1 class="text-white font2">Candidatos</h1>  
+      </div>
+    </div>
+
+    <!--Filtros-->
+    <div class="row m-3">
+      <div class="col-12">
+
+        <button type="button" class="btn btn-light col-12 mb-3" (click) = "showFilters = !showFilters || showNameBar = false  || showExperienceOptions = false">Filtrar Búsqueda</button>
+
+        <div class="filters" style="justify-items: center;" *ngIf="showFilters">
+          <!--Por profesion-->
+          <nav class="navbar navbar-dark bg-dark filtro col-4">
+            <a class="nav-link dropdown-toggle pb-0 text-white text-center" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Profesión
+            </a>
+            <div class="dropdown-menu bg-dark text-white border-info col-12" aria-labelledby="navbarDropdown">
+              <a  *ngFor="let occupation of occupations" class="dropdown-item dt text-center" (click)="filterOccupation=occupation">{{occupation}}</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item dt text-center" (click)="filterOccupation=''">TODOS</a>
+            </div>
+          </nav>
+
+          <!--Por experiencia-->
+          <div class="col-4 colExperience">
+            <nav class="navbar navbar-dark bg-dark filtro col-12">
+              <a class="nav-link dropdown-toggle pb-0 text-white  text-center" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="showExperienceOptions=!showExperienceOptions">
+                Experiencia
+              </a>
+            </nav>
+
+              <!--Subdropdown Experiencia-->
+              <div class="input-group mb-3" *ngIf="showExperienceOptions">
+
+                <!--Desde-->
+                <div class="input-group-prepend yearSelect">
+                  <label class="input-group-text" for="inputGroupSelect01">Desde:</label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01">
+                  <option selected>0 años</option>
+                  <option *ngFor="let year of years" value="year" (click)='forYear=year'>{{year}} años</option>
+                </select>
+
+                <!--Hasta-->
+                <div class="form-group col-12 border border-dark">
+                  <div class="row">
+                    <div class="d-inline col-5 yearSel text-center text-white">Hasta: </div>
+                    <input type="number" class="form-control titulo col-7 rounded-0" name="filter" [(ngModel)]="toYear" placeholder="Ej: 20 años"  style="font-family: georgia,garamond,serif; font-style: italic;">
+                  </div>
+                  </div>
+              </div>
+            </div>
+
+
+
+        <!--Por nombre-->
+        <nav class="navbar navbar-dark bg-dark filtro col-3">
+          <a class="nav-link dropdown-toggle pb-0 text-white  text-center" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="showNameBar=!showNameBar">
+            Nombre
+          </a>
+        </nav>
+        <!--Entrada de nombre-->
+          <div class="col-12" *ngIf="showNameBar">
+            <span class="text-white" style="font-style: italic;">Buscar por nombre:</span>
+            <div class="form-group">
+              <input type="text" class="form-control titulo" name="filter" [(ngModel)]="filterName" placeholder="Ej: Pepa"  style="font-family: georgia,garamond,serif; font-style: italic;">
+            </div>
+          </div>
+
+        </div>
+      </div>
+  </div>
+
+    <!--Listado Candidatos-->
+    <div class="row rowc">
+      <div *ngFor="let user of users | occupationFilter:filterOccupation | experienceFilter:toYear:forYear | nameFilter:filterName">
+        <div class="col-sm-6">
+          <div class="card mb-3 tarjeta" style="width: 520px; cursor: pointer;"  [routerLink]="['/userdetails',  user.name]">
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <img src="/assets/img/users/person.png"alt="person"class="card-img picture"/>
+                <!--<img src="/assets/img/users/{{user.name.toLocaleLowerCase()}}.jpg"alt="{{ user.name }}"class="card-img picture"/>-->
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">{{ user.name }}</h5>
+                  <p class="t card-text mt-1">
+                    Profesión: {{ user.occupation }}
+                  </p>
+                  <p class="t card-tex mt-1">
+                    Experiencia: {{ user.experience }} años
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

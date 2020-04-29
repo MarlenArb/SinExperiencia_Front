@@ -14,8 +14,12 @@ import { OccupationFilterPipe } from './pipes/occupation-filter.pipe';
 import { NameFilterPipe } from './pipes/name-filter.pipe';
 import { ExperienceFilterPipe } from './pipes/experience-filter.pipe';
 import { UserDetailsComponent } from './user-details/user-details.component';
+import { UserInterfaceComponent } from './user-interface/user-interface.component';
+import { AuthService } from './login/auth.service';
+import localeEs from '@angular/common/locales/es';
+import { registerLocaleData } from '@angular/common';
 
-
+registerLocaleData(localeEs, 'es');
 
 const routes: Routes = [
   { path: "", redirectTo: "/userinterface", pathMatch: "full" },
@@ -23,9 +27,11 @@ const routes: Routes = [
   {path: 'user', component: UserComponent},
   {path: 'login', component: LoginComponent},
   {path: 'userdetails', component: UserDetailsComponent},
-  {path: 'userdetails:name', component: UserDetailsComponent}
+  {path: 'userdetails/:name', component: UserDetailsComponent},
+  {path: 'userinterface', component: UserInterfaceComponent},
 
   ]
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +43,8 @@ const routes: Routes = [
     OccupationFilterPipe,
     NameFilterPipe,
     ExperienceFilterPipe,
-    UserDetailsComponent
+    UserDetailsComponent,
+    UserInterfaceComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +52,7 @@ const routes: Routes = [
     HttpClientModule,
     FormsModule
   ],
-  providers: [UserService],
+  providers: [UserService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

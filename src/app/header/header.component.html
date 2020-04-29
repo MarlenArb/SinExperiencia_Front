@@ -12,22 +12,24 @@
         <a class="nav-link " routerLink="/home">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/user">Candidatos</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Empresas</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/userdetails">Users</a>
+        <a class="nav-link" routerLink="/userdetails">Detalle Candidatos</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown link
+          Candidatos
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item" routerLink="/user">Gestionar</a>
+          <a class="dropdown-item" routerLink="/userinterface">Vista</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Empresas
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" routerLink="/user">Gestionar</a>
+          <a class="dropdown-item" routerLink="/userinterface">Vista</a>
         </div>
       </li>
     </ul>
