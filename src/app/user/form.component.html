@@ -11,12 +11,12 @@
   <div class="card">
 
     <!-- HEADER -->
-    <div class="card-header borde-sup">
+    <div class="card-header text-white bg-dark borde-sup">
 
       <span *ngIf="!user.idUser">Crear Usuario</span>
       <span *ngIf="user.idUser">Editar Usuario</span>
 
-      <button type="button" class="close" aria-label="Close" style="color: #163f6bfd;" (click)='return()'>
+      <button type="button" class="close text-white" aria-label="Close" (click)='return()'>
         <span aria-hidden="true" class="">&times;</span>
       </button>
 
@@ -187,7 +187,7 @@
     </div>
 
     <!-- FOOTER -->
-    <div class="card-footer borde-inf">
+    <div class="card-footer borde-inf text-white bg-dark">
 
       <button class="btn accept float-right" style="width: 100px;" role="button" (click)='addUser()' *ngIf="!user.idUser else elseBlock" [disabled]="!userForm.form.valid">
         Crear

@@ -1,14 +1,14 @@
 .btn{
-  background: #2b6bb0fd;
+  background: #005d9b;
   color: white;
 }
 
 .btn:hover{
-  background: #4d87adfd ;
+  background: #4d6fadfd ;
 }
 
 .container1{
-  border: 4px solid #2b6bb0fd;
+  /*border: 4px solid #2b6bb0fd;*/
   border-radius: 2px;
   background: #2b6bb08e;
 }
