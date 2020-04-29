@@ -6,7 +6,7 @@
 </div>
 
 <!-- CONTENEDOR PRINCIPAL -->
-<div class="container-fluid container1 p-0 mt-5">
+<div class="container-fluid container1 p-0 mt-5 form-font">
 
   <div class="card">
 
@@ -152,7 +152,7 @@
             <div class="col-2">
 
               <div class="form-group row">
-                <label for="country" class="col-form-label col-4">País</label>
+                <label for="country" class="col-form-label col-5">País</label>
                 <div class="col">
                   <input type="text" class="form-control" [(ngModel)]="user.country" name="country" required #pais="ngModel">
                   <div class="alert alert-danger" *ngIf="pais.invalid && (pais.dirty || pais.touched)">

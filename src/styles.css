@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital@1&display=swap'); /*font1*/
 @import url('https://fonts.googleapis.com/css2?family=Markazi+Text:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap'); /*form*/
 
 html{
   position: relative;
@@ -70,4 +71,13 @@ body{
   font-size: 22px;
   font-weight: normal !important;
   text-align: center;
+}
+
+.form-font{
+  font-family: 'Merriweather', serif;
+}
+
+.card:hover{
+  box-shadow: 7px 8px 3px #00000034;
+  transform:scale(1.05);
 }
