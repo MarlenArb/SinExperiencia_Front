@@ -10,7 +10,9 @@ import swal from 'sweetalert2';
 })
 export class HeaderComponent {
 
-  title: string = 'Rhovanion';
+  title: string = 'SinExperiencia';
+  change: boolean = true;
+
 
   constructor(public authService: AuthService, private router: Router) { }
 
