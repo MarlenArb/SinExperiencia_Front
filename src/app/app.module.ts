@@ -20,6 +20,9 @@ import localeEs from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
 import { FormComponent } from './user/form.component';
 import { SecurityConfigComponent } from './security-config/security-config.component';
+import { JobComponent } from './job/job.component';
+import { JobInterfaceComponent } from './job-interface/job-interface.component';
+import { JformComponent } from './job/jform.component';
 
 registerLocaleData(localeEs, 'es');
 
@@ -27,10 +30,12 @@ const routes: Routes = [
   { path: "", redirectTo: "/userinterface", pathMatch: "full" },
   {path: 'home', component: HomeComponent},
   {path: 'user', component: UserComponent},
+  {path: 'job', component: JobComponent},
   {path: 'login', component: LoginComponent},
   {path: 'userdetails', component: UserDetailsComponent},
   {path: 'userdetails/:idUser', component: UserDetailsComponent},
   {path: 'userinterface', component: UserInterfaceComponent},
+  {path: 'jobinterface', component: JobInterfaceComponent},
   { path: 'user/form', component: FormComponent },
   { path: 'user/form/:idUser', component: FormComponent }
 
@@ -50,7 +55,10 @@ const routes: Routes = [
     UserDetailsComponent,
     UserInterfaceComponent,
     FormComponent,
-    SecurityConfigComponent
+    SecurityConfigComponent,
+    JobComponent,
+    JobInterfaceComponent,
+    JformComponent
   ],
   imports: [
     BrowserModule,

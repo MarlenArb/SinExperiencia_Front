@@ -22,3 +22,8 @@
   padding: 10px;
 
 }
+
+.card:hover{
+  box-shadow: 7px 8px 3px #00000034;
+  transform:scale(1.05);
+}
