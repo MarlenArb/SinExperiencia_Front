@@ -23,6 +23,7 @@ import { SecurityConfigComponent } from './security-config/security-config.compo
 import { JobComponent } from './job/job.component';
 import { JobInterfaceComponent } from './job-interface/job-interface.component';
 import { JformComponent } from './job/jform.component';
+import { JobService } from './job/job.service';
 
 registerLocaleData(localeEs, 'es');
 
@@ -37,7 +38,9 @@ const routes: Routes = [
   {path: 'userinterface', component: UserInterfaceComponent},
   {path: 'jobinterface', component: JobInterfaceComponent},
   { path: 'user/form', component: FormComponent },
-  { path: 'user/form/:idUser', component: FormComponent }
+  { path: 'user/form/:idUser', component: FormComponent },
+  { path: 'job/form', component: JformComponent },
+  { path: 'job/form/:idJob', component: JformComponent }
 
   ]
 
@@ -66,7 +69,7 @@ const routes: Routes = [
     HttpClientModule,
     FormsModule
   ],
-  providers: [UserService, AuthService],
+  providers: [UserService, AuthService, JobService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

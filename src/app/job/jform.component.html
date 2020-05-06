@@ -1,1 +1,151 @@
-<p>jform works!</p>
+<!-- VALIDACIONES -->
+<div class="container" *ngIf="this.jobService.validaciones?.length>0">
+  <div class="alert alert-danger" role="alert" *ngFor="let validacion of this.jobService.validaciones">
+    {{validacion}}
+  </div>
+</div>
+
+<div class="my-container container-fluid mt-4">
+
+     <!--Titulo-->
+     <div class="row mb-3">
+      <div class="title col-sm-12 my-title-container">
+          <h1 *ngIf="!job.idJob">Crear Oferta de Empleo</h1>
+          <h1 *ngIf="job.idJob">Editar Oferta de Empleo</h1>
+      </div>
+    </div>
+
+            
+
+          <!--Alertas Formulario no Válido-->
+        
+          <!--Campos obligatorios-->
+          <div class="alert alert-danger fade-in-top" *ngIf="(com.invalid && com.touched && com.errors.required)
+          || (emp.invalid && emp.touched && emp.errors.required)
+          || (des.invalid && des.touched && des.errors.required)
+          || (req.invalid && req.touched && req.errors.required)"> 
+          <div>
+            Todos los campos de este formulario son obligatorios
+          </div>
+        </div>
+
+        <!--Campos con un mínimo de caracteres-->
+        <div class="alert alert-danger fade-in-top" *ngIf="(des.invalid && des.touched && des.errors.minlength)"> 
+        <div>
+          La descripción debe tener un mínimo de 15 caracteres.
+        </div>
+      </div>
+
+
+
+  <!-- CONTENEDOR PRINCIPAL -->
+  <div class="container-fluid p-4  form-font">
+
+    <div class="card">
+
+      <!-- BODY -->
+      <div class="card-body">
+    <button type="button" class="close" aria-label="Close" (click)='return()'>
+      <span aria-hidden="true" class="">&times;</span>
+    </button>
+    
+
+
+      <div class="container">
+     
+          <form #jobForm="ngForm">
+
+            <!--Fila 1-->
+            <div class="row">
+
+              <div class="col-1"></div>
+
+              <div class="col-5">
+                <div class="form-group row">
+                  <label for="empresa" class="col-form-label col-4">Empresa</label>
+                  <div class="col input-group">
+                    <input type="text" class="form-control" [(ngModel)]="job.company" name="empresa" required  #com="ngModel">
+                    <div class="input-group-append" *ngIf="com.invalid && (com.dirty || com.touched)">
+                      <span class="input-group-text alert-danger" *ngIf="com.errors.required">X</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-5">
+                <div class="form-group row">
+                  <label for="empleo" class="col-form-label col-4">Empleo</label>
+                  <div class="input-group col">
+                    <input type="text" id="toggle" class="form-control" [(ngModel)]="job.occupation" name="empleo" minlength="3" required #emp="ngModel">
+                    <div class="input-group-append" *ngIf="emp.invalid && (emp.dirty || emp.touched)">
+                      <span class="input-group-text alert-danger" *ngIf="emp.errors.required || emp.errors.minlength">X</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!--Fila 2-->
+            <div class="row">
+
+              <div class="col-1"></div>
+
+              <div class="col-10">
+                <div class="form-group row">
+                  <label for="descripcion" class="col-form-label col-2">Descripción</label>
+                  <div class="col input-group">
+                    <input type="text" class="form-control" [(ngModel)]="job.description" name="descripcion" required minlength="15" #des="ngModel">
+                    <div class="input-group-append" *ngIf="des.invalid && (des.dirty || des.touched)">
+                      <span class="input-group-text alert-danger" *ngIf="des.errors.required">X</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!--Fila 3-->
+            <div class="row">
+
+              <div class="col-1"></div>
+
+              <div class="col-10">
+                <div class="form-group row">
+                  <label for="requisitos" class="col-form-label col-2">Requisitos</label>
+                  <div class="col input-group">
+                    <input type="text" class="form-control" [(ngModel)]="job.requirements" name="requisitos" required #req="ngModel">
+                    <div class="input-group-append" *ngIf="req.invalid && (req.dirty || req.touched)">
+                      <span class="input-group-text alert-danger" *ngIf="req.errors.required">X</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </form>
+
+          <!--Pie-->
+          <div class="text-white">
+
+            <button class="btn accept float-right" style="width: 100px;" role="button" (click)='addJob()' *ngIf="!job.idJob else elseBlock" [disabled]="!jobForm.form.valid">
+              Crear
+            </button>
+    
+            <ng-template #elseBlock>
+              <button class="btn accept float-right" style="width: 100px;" role="button" (click)='modifyJob()' [disabled]="!jobForm.form.valid">
+                Editar
+              </button>
+            </ng-template>
+    
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
