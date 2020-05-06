@@ -114,7 +114,7 @@
                 <div class="form-group row">
                   <label for="requisitos" class="col-form-label col-2">Requisitos</label>
                   <div class="col input-group">
-                    <input type="text" class="form-control" [(ngModel)]="job.requirements" name="requisitos" required #req="ngModel">
+                    <input type="text" class="form-control" [(ngModel)]="job.requirements" name="requisitos"  #req="ngModel">
                     <div class="input-group-append" *ngIf="req.invalid && (req.dirty || req.touched)">
                       <span class="input-group-text alert-danger" *ngIf="req.errors.required">X</span>
                     </div>

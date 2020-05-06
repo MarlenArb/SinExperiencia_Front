@@ -28,7 +28,7 @@ export class JformComponent implements OnInit {
       this.jobService.addJob(this.job).subscribe(
         job => {
           this.router.navigate(['/job'])
-          swal.fire('Nueva Empleo', `Nueva oferta de empleo creada con éxito!`, 'success');
+          swal.fire('Nueva Oferta de Empleo', `Nueva oferta de empleo creada con éxito!`, 'success');
         }
       )
     }

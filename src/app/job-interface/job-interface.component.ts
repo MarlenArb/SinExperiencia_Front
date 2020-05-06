@@ -9,7 +9,7 @@ import { Job } from '../job/job';
 })
 export class JobInterfaceComponent implements OnInit {
 
-  jobs: Job[];
+  jobs: Job[] = [];
   constructor(public jobService: JobService) { }
 
   ngOnInit(): void {

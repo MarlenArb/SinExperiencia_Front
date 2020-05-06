@@ -91,41 +91,13 @@
                 <h5 class="card-title">{{ user.name }}</h5>
                 <p class="t card-text mt-1">Profesión: {{ user.occupation }}</p>
                 <p class="t card-tex mt-1">Experiencia: {{ user.experience }} años</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="#" class="btn btn-primary mt-2">Más sobre {{user.name}}</a>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-
-
-
-<!--     <div class="row rowc">
-      <div *ngFor="let user of users | occupationFilter:filterOccupation | experienceFilter:toYear:forYear | nameFilter:filterName">
-        <div class="col-sm-6">
-          <div class="card mb-3 tarjeta" style="width: 520px; cursor: pointer;"  [routerLink]="['/userdetails',  user.idUser]">
-            <div class="row no-gutters">
-              <div class="col-md-4">
-                <img src="/assets/img/users/person.png"alt="person"class="card-img picture"/>
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">{{ user.name }}</h5>
-                  <p class="t card-text mt-1">
-                    Profesión: {{ user.occupation }}
-                  </p>
-                  <p class="t card-tex mt-1">
-                    Experiencia: {{ user.experience }} años
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
 
   </div>
 </section>

@@ -11,7 +11,7 @@ export class UserInterfaceComponent implements OnInit {
 
   constructor(private userService: UserService ) { }
 
-  users: User[];
+  users: User[] = [];
   occupations = ["Jardinero", "Abogada","Ingeniero", "Diseñador", "Dependienta", "Panadera", "Mecánico"];
   filterOccupation = '';
   filterName = '';
