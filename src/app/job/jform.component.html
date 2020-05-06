@@ -97,7 +97,7 @@
                   <div class="col input-group">
                     <input type="text" class="form-control" [(ngModel)]="job.description" name="descripcion" required minlength="15" #des="ngModel">
                     <div class="input-group-append" *ngIf="des.invalid && (des.dirty || des.touched)">
-                      <span class="input-group-text alert-danger" *ngIf="des.errors.required">X</span>
+                      <span class="input-group-text alert-danger" *ngIf="des.errors.required || des.errors.minlength">X</span>
                     </div>
                   </div>
                 </div>

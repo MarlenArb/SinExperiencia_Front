@@ -78,14 +78,37 @@
   </div>
 
     <!--Listado Candidatos-->
-    <div class="row rowc">
+    
+    <div class="row">
+      <div class="col-sm-6 fade-in-top" *ngFor="let user of users | occupationFilter:filterOccupation | experienceFilter:toYear:forYear | nameFilter:filterName">
+        <div class="card mb-3">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img src="/assets/img/users/person.png" class="card-img" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{{ user.name }}</h5>
+                <p class="t card-text mt-1">Profesión: {{ user.occupation }}</p>
+                <p class="t card-tex mt-1">Experiencia: {{ user.experience }} años</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+<!--     <div class="row rowc">
       <div *ngFor="let user of users | occupationFilter:filterOccupation | experienceFilter:toYear:forYear | nameFilter:filterName">
         <div class="col-sm-6">
           <div class="card mb-3 tarjeta" style="width: 520px; cursor: pointer;"  [routerLink]="['/userdetails',  user.idUser]">
             <div class="row no-gutters">
               <div class="col-md-4">
                 <img src="/assets/img/users/person.png"alt="person"class="card-img picture"/>
-                <!--<img src="/assets/img/users/{{user.name.toLocaleLowerCase()}}.jpg"alt="{{ user.name }}"class="card-img picture"/>-->
               </div>
               <div class="col-md-8">
                 <div class="card-body">
@@ -102,7 +125,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
   </div>
 </section>
