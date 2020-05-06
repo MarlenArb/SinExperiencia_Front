@@ -1,4 +1,4 @@
-<section id="char-details">
+<section id="char-details slide-out-left">
   <div class="font1 my-container container-fluid mt-4">
 
     <!--Titulo-->
@@ -91,7 +91,9 @@
                 <h5 class="card-title">{{ user.name }}</h5>
                 <p class="t card-text mt-1">Profesión: {{ user.occupation }}</p>
                 <p class="t card-tex mt-1">Experiencia: {{ user.experience }} años</p>
-                <a href="#" class="btn btn-primary mt-2">Más sobre {{user.name}}</a>
+                <a href="#" class="btn btn-primary mt-2" [routerLink]="['/userdetails', user.idUser]" >Ver más
+                  <i class="ml-2 fas fa-caret-right"></i> 
+                </a>
               </div>
             </div>
           </div>

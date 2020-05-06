@@ -25,7 +25,7 @@
 </thead>
 <tbody class="table-font">
   <tr *ngFor="let job of jobs">
-    <td>{{ job.occupation }}</td>
+    <td class="text-capitalize">{{ job.occupation.toLocaleLowerCase() }}</td>
     <td>{{ job.description}}</td>
     <td>{{ job.company}}</td>
     <td>{{ job.requirements }} años</td>
