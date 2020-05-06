@@ -15,6 +15,36 @@
       </div>
     </div>
 
+            
+
+          <!--Alertas Formulario no Válido-->
+        
+          <!--Campos obligatorios-->
+          <div class="alert alert-danger fade-in-top" *ngIf="(user_name.invalid && user_name.touched && user_name.errors.required)
+          || (pass.invalid && pass.touched && pass.errors.required)
+          || (correo.invalid && correo.touched) || (fecha.invalid && fecha.touched) || (pais.invalid && pais.touched)
+          || (roll.invalid && roll.touched) || (last.invalid && last.touched)"> 
+          <div>
+            Todos los campos de este formulario son obligatorios
+          </div>
+        </div>
+
+        <!--Campos con un mínimo de caracteres-->
+        <div class="alert alert-danger fade-in-top" *ngIf="(user_name.invalid && user_name.touched && user_name.errors.minlength)
+        || (pass.invalid && pass.touched && pass.errors.minlength)
+        || (last.invalid && last.touched && last.errors.minlength)"> 
+        <div>
+          Los campos nombre, apellido y contraseña requieren un mínimo de 3 caracteres
+        </div>
+      </div>
+
+        <!--Correo con formato no válido-->
+        <div class="alert alert-danger fade-in-top" *ngIf="(correo.invalid && correo.touched && correo.errors.email)"> 
+        <div>
+          El correo no tiene un formato válido
+        </div>
+      </div>
+
 
 
   <!-- CONTENEDOR PRINCIPAL -->
@@ -28,8 +58,10 @@
       <span aria-hidden="true" class="">&times;</span>
     </button>
     
-        <div class="container">
 
+
+      <div class="container">
+     
           <form #userForm="ngForm">
 
             <!--Fila 1-->
@@ -38,39 +70,27 @@
               <div class="col-1"></div>
 
               <div class="col-5">
-
                 <div class="form-group row">
-                  <label for="username" class="col-form-label col-4">Usuario</label>
-                  <div class="col">
+                  <label for="username" class="col-form-label col-4">Nombre</label>
+                  <div class="col input-group">
                     <input type="text" class="form-control" [(ngModel)]="user.name" name="username" required minlength="3" #user_name="ngModel">
-                    <div class="alert alert-danger" *ngIf="user_name.invalid && (user_name.dirty || user_name.touched)">
-                      <div *ngIf="user_name.errors.required">
-                        Es necesario especificar un nombre se usuario
-                      </div>
-                      <div *ngIf="user_name.errors.minlength">
-                        Es necesario un mín de 3 caracteres para el nombre de usuario
-                      </div>
+                    <div class="input-group-append" *ngIf="user_name.invalid && (user_name.dirty || user_name.touched)">
+                      <span class="input-group-text alert-danger" *ngIf="user_name.errors.required || user_name.errors.minlength">X</span>
                     </div>
                   </div>
                 </div>
-
               </div>
 
               <div class="col-5">
-
                 <div class="form-group row" id="show_hide_password">
-                  <label for="pass" class="col-form-label col-4">Contraseña</label>
+                  <label for="pass" class="col-form-label col-4">Apellido</label>
                   <div class="input-group col">
-                    <input type="password" id="toggle" class="form-control" [(ngModel)]="user.password" name="password"  required #pass="ngModel">
-                    <div class="alert alert-danger" *ngIf="pass.invalid && (pass.dirty || pass.touched)">
-                      <div *ngIf="pass.errors.required">
-                        Es necesario especificar una contraseña
-                      </div>
+                    <input type="text" id="toggle" class="form-control" [(ngModel)]="user.lastname" name="lastname" minlength="3" required #last="ngModel">
+                    <div class="input-group-append" *ngIf="last.invalid && (last.dirty || last.touched)">
+                      <span class="input-group-text alert-danger" *ngIf="last.errors.required || last.errors.minlength">X</span>
                     </div>
-
                   </div>
                 </div>
-
               </div>
 
             </div>
@@ -80,23 +100,28 @@
 
               <div class="col-1"></div>
 
-              <div class="col-10">
-
+              <div class="col-5">
                 <div class="form-group row">
-                  <label for="correo" class="col-form-label col-2">Correo</label>
-                  <div class="col">
+                  <label for="correo" class="col-form-label col-4">Correo</label>
+                  <div class="col input-group">
                     <input type="email" class="form-control" [(ngModel)]="user.mail" name="mail" required email #correo="ngModel">
-                    <div class="alert alert-danger" *ngIf="correo.invalid && (correo.dirty || correo.touched)">
-                      <div *ngIf="correo.errors.required">
-                        Es necesario especificar una dirección de correo
-                      </div>
-                      <div *ngIf="correo.errors.email">
-                        El correo no tiene un formato válido
-                      </div>
+                    <div class="input-group-append" *ngIf="correo.invalid && (correo.dirty || correo.touched)">
+                      <span class="input-group-text alert-danger" *ngIf="correo.errors.required || correo.errors.email">X</span>
                     </div>
                   </div>
                 </div>
+              </div>
 
+              <div class="col-5">
+                <div class="form-group row" id="show_hide_password">
+                  <label for="pass" class="col-form-label col-4">Contraseña</label>
+                  <div class="input-group col">
+                    <input type="password" id="toggle" class="form-control" [(ngModel)]="user.password" name="password" minlength="3" required #pass="ngModel">
+                    <div class="input-group-append" *ngIf="pass.invalid && (pass.dirty || pass.touched)">
+                      <span class="input-group-text alert-danger" *ngIf="pass.errors.required || pass.errors.minlength">X</span>
+                    </div>
+                  </div>
+                </div>
               </div>
 
             </div>
@@ -121,8 +146,10 @@
                 <div class="form-group row" id="show_hide_password">
                   <label for="pass" class="col-form-label col-4">Experiencia</label>
                   <div class="input-group col">
-                    <input type="text" id="toggle" class="form-control" [(ngModel)]="user.experience" name="password" placeholder="15 años" required>
-
+                    <input type="text" id="toggle" #exp="ngModel" class="form-control" [(ngModel)]="user.experience" name="experiencia" placeholder="15 años" required>
+                    <div class="input-group-append" *ngIf="exp.invalid && (exp.dirty || exp.touched)">
+                      <span class="input-group-text alert-danger" *ngIf="exp.errors.required">X</span>
+                    </div>
                   </div>
                 </div>
 
@@ -140,12 +167,10 @@
 
                 <div class="form-group row">
                   <label for="birthdate" class="col-form-label col-4">Fecha Nac.</label>
-                  <div class="col">
+                  <div class="col input-group">
                     <input type="date" class="form-control" [(ngModel)]="user.birthdate" name="birthdate" required #fecha="ngModel">
-                    <div class="alert alert-danger" *ngIf="fecha.invalid && (fecha.dirty || fecha.touched)">
-                      <div *ngIf="fecha.errors.required">
-                        Es necesario especificar una fecha de nacimiento
-                      </div>
+                    <div class="input-group-append" *ngIf="fecha.invalid && (fecha.dirty || fecha.touched)">
+                      <span class="input-group-text alert-danger" *ngIf="fecha.errors.required">X</span>
                     </div>
                   </div>
                 </div>
@@ -156,12 +181,10 @@
 
                 <div class="form-group row">
                   <label for="country" class="col-form-label col-5">País</label>
-                  <div class="col">
+                  <div class="col input-group">
                     <input type="text" class="form-control" [(ngModel)]="user.country" name="country" required #pais="ngModel">
-                    <div class="alert alert-danger" *ngIf="pais.invalid && (pais.dirty || pais.touched)">
-                      <div *ngIf="pais.errors.required">
-                        Es necesario especificar un pais
-                      </div>
+                    <div class="input-group-append" *ngIf="pais.invalid && (pais.dirty || pais.touched)">
+                      <span class="input-group-text alert-danger" *ngIf="pais.errors.required">X</span>
                     </div>
                   </div>
                 </div>

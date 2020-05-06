@@ -27,7 +27,7 @@ import { JformComponent } from './job/jform.component';
 registerLocaleData(localeEs, 'es');
 
 const routes: Routes = [
-  { path: "", redirectTo: "/userinterface", pathMatch: "full" },
+  { path: "", redirectTo: "/jobinterface", pathMatch: "full" },
   {path: 'home', component: HomeComponent},
   {path: 'user', component: UserComponent},
   {path: 'job', component: JobComponent},

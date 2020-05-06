@@ -27,7 +27,7 @@ export class JobService {
   }
 
   private isAuthorized(e): boolean {
-
+/*
     if(e.status == 401) {
       this.router.navigate(['/login']);
       return true;
@@ -40,7 +40,8 @@ export class JobService {
     }
 
     return false;
-
+*/
+  return true;
   }
 
    //Listar jobs
